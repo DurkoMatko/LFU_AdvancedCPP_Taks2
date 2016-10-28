@@ -1,8 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
-
-
 
 void openFile(std::fstream &file) {
 	file.open("test.txt",std::fstream::trunc | std::fstream::app);
