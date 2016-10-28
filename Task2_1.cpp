@@ -19,13 +19,8 @@ void deallocate() {
 }
 
 int main() {
-	try{
-		allocate();
-		throw std::runtime_error(" :) ");
-		deallocate();
-	}
-	catch(std::runtime_error e){		//catch exception and make sure heap objects are deallocated
-		deallocate();				
-	}
-	
+	std::set_terminate(deallocate);		//set function to be called on terminate
+	allocate();
+	throw std::runtime_error(" :) ");
+	deallocate();						//in imaginary case exception is not thrown, I can't forget to deallocate memory here as well
 }
